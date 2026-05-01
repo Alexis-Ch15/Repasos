@@ -1,22 +1,20 @@
 public class EstudianteBecado extends Estudiante{
     private double porcentajeBeca;
-    public EstudianteBecado(String nombre, String codigo, double precio, double valorMatricula, double porcentajeBecas){
-        super(nombre,codigo,precio,valorMatricula);
-        this.porcentajeBeca = porcentajeBeca;
+    public EstudianteBecado(String nombre, String codigo, double promedio, double valorMatricula, double porcentajeBeca) {
+        super(nombre, codigo, promedio, valorMatricula);
+        setPorcentajeBeca(porcentajeBeca);
     }
-
     @Override
-    public double calcularPagoFinal() {
-        return (porcentajeBeca/100 * getValorMatricula()) - getValorMatricula();
+    public double calcularPagoFinal () {
+        return getValorMatricula() - (getValorMatricula() * porcentajeBeca / 100);
     }
-
-    public double getPorcentajeBeca(){
+    public double getPorcentajeBeca () {
         return porcentajeBeca;
     }
-    public void setPorcentajeBeca(double porcentajeBeca){
-        if(porcentajeBeca > 0){
+    public void setPorcentajeBeca( double porcentajeBeca){
+        if (porcentajeBeca > 0 && porcentajeBeca <= 100) {
             this.porcentajeBeca = porcentajeBeca;
-        }else {
+        } else {
             System.out.println("El porcentaje es invalido.");
         }
     }
