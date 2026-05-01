@@ -64,5 +64,4 @@ abstract public class Estudiante{
         System.out.println("Matricula: $" + valorMatricula);
         System.out.println("Pago final: $" + pagoFinal);
     }
-
 }
